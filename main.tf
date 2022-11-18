@@ -1,5 +1,6 @@
 module "vpc" {
-    source = "git::https://github.com/b50-cloudedevops/tf-module-vpc.git?ref=main"
+    source = "./vendor/modules/vpc"
+    VPC_CIDR = var.VPC_CIDR
 }
 
 # Always the source attribute in terraform module cannot be parameterized
