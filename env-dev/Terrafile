@@ -1,3 +1,3 @@
 vpc:
-  source: "vendor/modules/vpc"
+  source: "https://github.com/b50-cloudedevops/tf-module-vpc.git"
   version: "main"
