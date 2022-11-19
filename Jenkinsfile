@@ -11,6 +11,7 @@ pipeline {
     stages {
         stage('terraform init') {
             steps {
+                sh "cd terraform-vpc"
                 sh "terrafile -f env-${ENV}/Terrafile"  
                 sh "terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars"
             }
@@ -23,7 +24,7 @@ pipeline {
         }
         stage('terraform Apply') {
             steps {
-                sh "terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars "  
+                sh "terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars"  
                 
             }
         }
