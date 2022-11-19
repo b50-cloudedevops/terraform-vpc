@@ -2,6 +2,7 @@ pipeline {
     agent any    
     parameters {
         choice(name: 'CHOICES', choices: ['dev', 'prod'], description: 'choose environment')
+        hoice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'choose action)
         //text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
        // booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
         // choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
@@ -10,7 +11,7 @@ pipeline {
     stages {
         stage('terraform init') {
             steps {
-                sh "terrafile -f env-${ENV}/Terrafile "  
+                sh "terrafile -f env-${ENV}/Terrafile"  
                 sh "terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars"
             }
         }
@@ -22,7 +23,7 @@ pipeline {
         }
         stage('terraform Apply') {
             steps {
-                sh "terraform apply -var-file=env-${ENV}/${ENV}.tfvars "  
+                sh "terraform ${ACTION} -var-file=env-${ENV}/${ENV}.tfvars "  
                 
             }
         }
