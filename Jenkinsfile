@@ -2,7 +2,7 @@ pipeline {
     agent any    
     parameters {
         choice(name: 'CHOICES', choices: ['dev', 'prod'], description: 'choose environment')
-        hoice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'choose action)
+        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'choose action')
         //text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
        // booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
         // choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
