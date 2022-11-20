@@ -3,7 +3,7 @@ module "vpc" {
     VPC_CIDR = var.VPC_CIDR
     //PRIVATE_SUBNET_CIDR = var.PRIVATE_SUBNET_CIDR
     //PUBLIC_SUBNET_CIDR = var.PUBLIC_SUBNET_CIDR
-    = var.ENV
+    ENV = var.ENV
 }
 //variable "PUBLIC_SUBNET_CIDR" {}
 //variable "PRIVATE_SUBNET_CIDR" {}
